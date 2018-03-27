@@ -1,16 +1,16 @@
 import React from 'react';
-import Section from '../Section';
+import PlotlySection from '../PlotlySection';
 import {TraceTypeSection} from '../derived';
 import {Flaglist, Info, Numeric} from '../../fields';
 import {TestEditor, fixtures} from 'lib/test-utils';
 import {connectTraceToPlot} from 'lib';
 import {mount} from 'enzyme';
 
-const TraceSection = connectTraceToPlot(Section);
+const TraceSection = connectTraceToPlot(PlotlySection);
 
-describe('Section', () => {
+describe('PlotlySection', () => {
   it('is visible if it contains any visible children', () => {
-    // mode is visible with scatter. Hole is not visible. Section should show.
+    // mode is visible with scatter. Hole is not visible. PlotlySection should show.
     const wrapper = mount(
       <TestEditor onUpdate={jest.fn()} {...fixtures.scatter()}>
         <TraceSection name="test-section" traceIndexes={[0]}>
@@ -24,7 +24,7 @@ describe('Section', () => {
           <Numeric attr="hole" min={0} max={1} step={0.1} />
         </TraceSection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.children().length).toBe(1);
     expect(wrapper.find(Flaglist).props().plotProps.isVisible).toBe(true);
@@ -34,18 +34,18 @@ describe('Section', () => {
   it('is visible if it contains any non attr children', () => {
     const wrapper = mount(
       <TestEditor onUpdate={jest.fn()} {...fixtures.scatter()}>
-        <Section name="test-section">
+        <PlotlySection name="test-section">
           <div className="extra">special extra</div>
-        </Section>
+        </PlotlySection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.children().length).toBe(1);
     expect(wrapper.find('.extra').text()).toBe('special extra');
   });
 
   it('is not visible if it contains no visible children', () => {
-    // pull and hole are not scatter attrs. Section should not show.
+    // pull and hole are not scatter attrs. PlotlySection should not show.
     const wrapper = mount(
       <TestEditor onUpdate={jest.fn()} {...fixtures.scatter()}>
         <TraceSection name="test-section" traceIndexes={[0]}>
@@ -53,13 +53,13 @@ describe('Section', () => {
           <Numeric attr="hole" min={0} max={1} step={0.1} traceIndexes={[0]} />
         </TraceSection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.find(Numeric).exists()).toBe(false);
   });
 
   it('will hide with Info children when attrs not defined', () => {
-    const TraceSection = connectTraceToPlot(Section);
+    const TraceSection = connectTraceToPlot(PlotlySection);
     const wrapper = mount(
       <TestEditor onUpdate={jest.fn()} {...fixtures.scatter()}>
         <TraceSection name="test-section" traceIndexes={[0]}>
@@ -67,7 +67,7 @@ describe('Section', () => {
           <Info>INFO</Info>
         </TraceSection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.find(Info).length).toBe(0);
   });
@@ -92,7 +92,7 @@ describe('TraceTypeSection', () => {
           />
         </TraceSection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.find(Flaglist).length).toBe(1);
   });
@@ -115,7 +115,7 @@ describe('TraceTypeSection', () => {
           />
         </TraceSection>
       </TestEditor>
-    ).find(Section);
+    ).find(PlotlySection);
 
     expect(wrapper.find(Flaglist).length).toBe(0);
   });

@@ -13,7 +13,7 @@ import {
   NumericFraction,
   Radio,
   TextEditor,
-  Section,
+  PlotlySection,
   SymbolSelector,
   TraceAccordion,
   TraceTypeSection,
@@ -42,7 +42,7 @@ const StyleTracesPanel = ({localize: _}) => (
     <NumericFraction label={_('Opacity')} attr="opacity" />
     <ColorPicker label={_('Color')} attr="color" />
 
-    <Section name={_('Text Attributes')}>
+    <PlotlySection name={_('Text Attributes')}>
       <Flaglist
         attr="textinfo"
         options={[
@@ -52,9 +52,9 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('%'), value: 'percent'},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Header')}>
+    <PlotlySection name={_('Header')}>
       <Numeric label={_('Height')} attr="header.height" />
       <ColorPicker label={_('Fill Color')} attr="header.fill.color" />
       <FontSelector label={_('Typeface')} attr="header.font.family" />
@@ -71,9 +71,9 @@ const StyleTracesPanel = ({localize: _}) => (
       <ColorPicker label={_('Font Color')} attr="header.font.color" />
       <Numeric label={_('Border Width')} attr="header.line.width" />
       <ColorPicker label={_('Border Color')} attr="header.line.color" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Cells')}>
+    <PlotlySection name={_('Cells')}>
       <Numeric label={_('Height')} attr="cells.height" />
       <ColorPicker label={_('Fill Color')} attr="cells.fill.color" />
       <FontSelector label={_('Typeface')} attr="cells.font.family" />
@@ -90,9 +90,9 @@ const StyleTracesPanel = ({localize: _}) => (
       <ColorPicker label={_('Font Color')} attr="cells.font.color" />
       <Numeric label={_('Border Width')} attr="cells.line.width" />
       <ColorPicker label={_('Border Color')} attr="cells.line.color" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Display')}>
+    <PlotlySection name={_('Display')}>
       <Flaglist
         attr="mode"
         options={[
@@ -109,12 +109,12 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('Disable'), value: false},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Filled Area')}>
+    <PlotlySection name={_('Filled Area')}>
       <FillDropdown attr="fill" label={_('Fill to')} localize={_} />
       <ColorPicker label={_('Color')} attr="fillcolor" />
-    </Section>
+    </PlotlySection>
 
     <TraceMarkerSection>
       <Radio
@@ -141,20 +141,20 @@ const StyleTracesPanel = ({localize: _}) => (
       <ColorPicker label={_('Border Color')} attr="marker.line.color" />
     </TraceMarkerSection>
 
-    <Section name={_('Size and Spacing')}>
+    <PlotlySection name={_('Size and Spacing')}>
       <LayoutNumericFractionInverse label={_('Bar Width')} attr="bargap" />
       <LayoutNumericFractionInverse label={_('Box Width')} attr="boxgap" />
       <LayoutNumericFraction label={_('Bar Padding')} attr="bargroupgap" />
       <LayoutNumericFraction label={_('Box Padding')} attr="boxgroupgap" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Ticks')}>
+    <PlotlySection name={_('Ticks')}>
       <Numeric label={_('Width')} attr="tickwidth" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Whiskers')}>
+    <PlotlySection name={_('Whiskers')}>
       <Numeric label={_('Width')} attr="whiskerwidth" />
-    </Section>
+    </PlotlySection>
 
     <TraceTypeSection
       name={_('Lines')}
@@ -223,7 +223,7 @@ const StyleTracesPanel = ({localize: _}) => (
       />
     </TraceTypeSection>
 
-    <Section name={_('Colorscale')}>
+    <PlotlySection name={_('Colorscale')}>
       <ColorscalePicker label={_('Colorscale')} attr="colorscale" />
       <Radio
         label={_('Orientation')}
@@ -251,12 +251,12 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('Hide'), value: false},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Heatmap')}>
+    <PlotlySection name={_('Heatmap')}>
       <Numeric label={_('Horizontal Gaps')} attr="xgap" />
       <Numeric label={_('Vertical Gaps')} attr="ygap" />
-    </Section>
+    </PlotlySection>
 
     <TraceTypeSection
       name={_('Gaps in Data')}
@@ -272,7 +272,7 @@ const StyleTracesPanel = ({localize: _}) => (
       />
     </TraceTypeSection>
 
-    <Section name={_('Contours')}>
+    <PlotlySection name={_('Contours')}>
       <Radio
         label={_('Coloring')}
         attr="contours.coloring"
@@ -303,9 +303,9 @@ const StyleTracesPanel = ({localize: _}) => (
       <ContourNumeric label={_('Step Size')} attr="contours.size" />
       <ContourNumeric label={_('Min Contour')} attr="contours.start" />
       <ContourNumeric label={_('Max Contour')} attr="contours.end" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Lighting')}>
+    <PlotlySection name={_('Lighting')}>
       <NumericFraction label={_('Ambient')} attr="lighting.ambient" />
       <NumericFraction label={_('Diffuse')} attr="lighting.diffuse" />
       <NumericFraction label={_('Specular')} attr="lighting.specular" />
@@ -319,15 +319,15 @@ const StyleTracesPanel = ({localize: _}) => (
         label={_('Face Normal')}
         attr="lighting.facenormalsepsilon"
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Light Position')}>
+    <PlotlySection name={_('Light Position')}>
       <NumericFraction label={_('X')} attr="lightposition.x" />
       <NumericFraction label={_('Y')} attr="lightposition.y" />
       <NumericFraction label={_('Z')} attr="lightposition.z" />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Increasing Trace Styles')}>
+    <PlotlySection name={_('Increasing Trace Styles')}>
       <TextEditor label={_('Name')} attr="increasing.name" richTextOnly />
       <Numeric label={_('Width')} attr="increasing.line.width" />
       <ColorPicker label={_('Line Color')} attr="increasing.line.color" />
@@ -341,9 +341,9 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('Hide'), value: false},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Decreasing Trace Styles')}>
+    <PlotlySection name={_('Decreasing Trace Styles')}>
       <TextEditor label={_('Name')} attr="decreasing.name" richTextOnly />
       <Numeric label={_('Width')} attr="decreasing.line.width" />
       <ColorPicker label={_('Line Color')} attr="decreasing.line.color" />
@@ -357,9 +357,9 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('Hide'), value: false},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('Highlight')}>
+    <PlotlySection name={_('Highlight')}>
       <Radio
         attr="boxmean"
         label={_('Mean')}
@@ -376,9 +376,9 @@ const StyleTracesPanel = ({localize: _}) => (
           {label: _('Hide'), value: false},
         ]}
       />
-    </Section>
+    </PlotlySection>
 
-    <Section name={_('On Hover')}>
+    <PlotlySection name={_('On Hover')}>
       <HoverInfo
         attr="hoverinfo"
         label={_('Values Shown On Hover')}
@@ -394,7 +394,7 @@ const StyleTracesPanel = ({localize: _}) => (
       />
       <ColorPicker label={_('Contour Color')} attr="contour.color" />
       <Numeric label={_('Contour Width')} attr="contour.width" />
-    </Section>
+    </PlotlySection>
 
     <TraceTypeSection name={_('Hover Action')} traceTypes={['box']}>
       <Flaglist

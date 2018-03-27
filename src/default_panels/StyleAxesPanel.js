@@ -15,7 +15,7 @@ import {
   NumericFractionDomain,
   Radio,
   TextEditor,
-  Section,
+  PlotlySection,
   TraceRequiredPanel,
   AxesFold,
   TraceTypeSection,
@@ -77,7 +77,7 @@ class StyleAxesPanel extends Component {
             ]}
             clearable={false}
           />
-          <Section name={_('Boundaries')} attr="domain[0]">
+          <PlotlySection name={_('Boundaries')} attr="domain[0]">
             <AxisOverlayDropdown
               label={_('Overlay')}
               attr="overlaying"
@@ -88,7 +88,7 @@ class StyleAxesPanel extends Component {
               attr="domain[0]"
             />
             <NumericFractionDomain label={_('End Position')} attr="domain[1]" />
-          </Section>
+          </PlotlySection>
 
           <TraceTypeSection
             name={_('Anchor')}
@@ -104,7 +104,7 @@ class StyleAxesPanel extends Component {
         </AxesFold>
 
         <AxesFold name={_('Range')}>
-          <Section name={_('Range')} attr="autorange">
+          <PlotlySection name={_('Range')} attr="autorange">
             <Dropdown
               attr="type"
               label={_('Type')}
@@ -126,7 +126,7 @@ class StyleAxesPanel extends Component {
             />
             <AxesRange label={_('Min')} attr="range[0]" />
             <AxesRange label={_('Max')} attr="range[1]" />
-          </Section>
+          </PlotlySection>
           <TraceTypeSection
             name={_('Range')}
             traceTypes={[
@@ -143,7 +143,7 @@ class StyleAxesPanel extends Component {
         </AxesFold>
 
         <AxesFold name={_('Lines')}>
-          <Section name={_('Axis Line')} attr="showline">
+          <PlotlySection name={_('Axis Line')} attr="showline">
             <Radio
               attr="showline"
               options={[
@@ -172,8 +172,8 @@ class StyleAxesPanel extends Component {
                 {label: _('Off'), value: false},
               ]}
             />
-          </Section>
-          <Section name={_('Grid Lines')} attr="showgrid">
+          </PlotlySection>
+          <PlotlySection name={_('Grid Lines')} attr="showgrid">
             <Radio
               attr="showgrid"
               options={[
@@ -183,8 +183,8 @@ class StyleAxesPanel extends Component {
             />
             <Numeric label={_('Thickness')} attr="gridwidth" units="px" />
             <ColorPicker label={_('Color')} attr="gridcolor" />
-          </Section>
-          <Section name={_('Zero Line')} attr="zeroline">
+          </PlotlySection>
+          <PlotlySection name={_('Zero Line')} attr="zeroline">
             <Radio
               attr="zeroline"
               options={[
@@ -194,9 +194,9 @@ class StyleAxesPanel extends Component {
             />
             <Numeric label={_('Thickness')} attr="zerolinewidth" units="px" />
             <ColorPicker label={_('Color')} attr="zerolinecolor" />
-          </Section>
+          </PlotlySection>
 
-          <Section name={_('Axis Background')} attr="showbackground">
+          <PlotlySection name={_('Axis Background')} attr="showbackground">
             <Radio
               attr="showbackground"
               options={[
@@ -205,11 +205,11 @@ class StyleAxesPanel extends Component {
               ]}
             />
             <ColorPicker label={_('Color')} attr="backgroundcolor" />
-          </Section>
+          </PlotlySection>
         </AxesFold>
 
         <AxesFold name={_('Tick Labels')}>
-          <Section name={_('Tick Labels')} attr="showticklabels">
+          <PlotlySection name={_('Tick Labels')} attr="showticklabels">
             <Radio
               attr="showticklabels"
               options={[
@@ -255,9 +255,9 @@ class StyleAxesPanel extends Component {
                 {label: _('k/M/B'), value: 'B'},
               ]}
             />
-          </Section>
+          </PlotlySection>
 
-          <Section name={_('Label Prefix')}>
+          <PlotlySection name={_('Label Prefix')}>
             <Dropdown
               label={_('Prefix')}
               attr="tickprefix"
@@ -278,8 +278,8 @@ class StyleAxesPanel extends Component {
                 {label: _('None'), value: 'none'},
               ]}
             />
-          </Section>
-          <Section name={_('Label Suffix')}>
+          </PlotlySection>
+          <PlotlySection name={_('Label Suffix')}>
             <Dropdown
               label={_('Suffix')}
               attr="ticksuffix"
@@ -299,9 +299,9 @@ class StyleAxesPanel extends Component {
                 {label: _('None'), value: 'none'},
               ]}
             />
-          </Section>
+          </PlotlySection>
 
-          <Section name={_('Spacing')} attr="dtick">
+          <PlotlySection name={_('Spacing')} attr="dtick">
             <Radio
               attr="tickmode"
               options={[
@@ -313,7 +313,7 @@ class StyleAxesPanel extends Component {
             <DTicks label={_('Step Offset')} attr="tick0" />
             <DTicks label={_('Step Size')} attr="dtick" />
             <NTicks label={_('Max Number of Labels')} attr="nticks" />
-          </Section>
+          </PlotlySection>
         </AxesFold>
         <AxesFold name={_('Tick Markers')}>
           <Radio
@@ -324,7 +324,7 @@ class StyleAxesPanel extends Component {
               {label: _('False'), value: false},
             ]}
           />
-          <Section name={_('Tick Markers')} attr="ticks">
+          <PlotlySection name={_('Tick Markers')} attr="ticks">
             <Radio
               attr="ticks"
               options={[
@@ -336,8 +336,8 @@ class StyleAxesPanel extends Component {
             <Numeric label={_('Length')} attr="ticklen" units="px" />
             <Numeric label={_('Width')} attr="tickwidth" units="px" />
             <ColorPicker label={_('Tick Color')} attr="tickcolor" />
-          </Section>
-          <Section name={_('Spacing')}>
+          </PlotlySection>
+          <PlotlySection name={_('Spacing')}>
             <Radio
               attr="tickmode"
               options={[
@@ -349,7 +349,7 @@ class StyleAxesPanel extends Component {
             <DTicks label={_('Step Offset')} attr="tick0" />
             <DTicks label={_('Step Size')} attr="dtick" />
             <NTicks label={_('Max Number of Markers')} attr="nticks" />
-          </Section>
+          </PlotlySection>
         </AxesFold>
 
         <AxesFold
@@ -420,7 +420,7 @@ class StyleAxesPanel extends Component {
               ]}
             />
           </RangeSelectorAccordion>
-          <Section name={_('Text')}>
+          <PlotlySection name={_('Text')}>
             <FontSelector
               label={_('Typeface')}
               attr="rangeselector.font.family"
@@ -434,8 +434,8 @@ class StyleAxesPanel extends Component {
               label={_('Font Color')}
               attr="rangeselector.font.color"
             />
-          </Section>
-          <Section name={_('Style')}>
+          </PlotlySection>
+          <PlotlySection name={_('Style')}>
             <ColorPicker
               label={_('Background Color')}
               attr="rangeselector.bgcolor"
@@ -453,8 +453,8 @@ class StyleAxesPanel extends Component {
               label={_('Border Color')}
               attr="rangeselector.bordercolor"
             />
-          </Section>
-          <Section name={_('Horizontal Positioning')}>
+          </PlotlySection>
+          <PlotlySection name={_('Horizontal Positioning')}>
             <Dropdown
               label={_('Anchor Point')}
               clearable={false}
@@ -467,8 +467,8 @@ class StyleAxesPanel extends Component {
               ]}
             />
             <Numeric label={_('Position')} step={0.02} attr="rangeselector.x" />
-          </Section>
-          <Section name={_('Vertical Positioning')}>
+          </PlotlySection>
+          <PlotlySection name={_('Vertical Positioning')}>
             <Dropdown
               label={_('Anchor Point')}
               clearable={false}
@@ -481,7 +481,7 @@ class StyleAxesPanel extends Component {
               ]}
             />
             <Numeric label={_('Position')} step={0.02} attr="rangeselector.y" />
-          </Section>
+          </PlotlySection>
         </AxesFold>
 
         <AxesFold

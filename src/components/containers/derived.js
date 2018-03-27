@@ -1,11 +1,11 @@
 import React from 'react';
-import Panel from './Panel';
-import Section from './Section';
+import PlotlyPanel from './PlotlyPanel';
+import PlotlySection from './PlotlySection';
 import PropTypes from 'prop-types';
 
 import {connectLayoutToPlot, containerConnectedContextTypes} from 'lib';
 
-const LayoutPanel = connectLayoutToPlot(Panel);
+const LayoutPanel = connectLayoutToPlot(PlotlyPanel);
 
 const TraceTypeSection = (props, context) => {
   const {fullContainer, fullData} = context;
@@ -17,7 +17,7 @@ const TraceTypeSection = (props, context) => {
     fullData && fullData.some(t => props.traceTypes.includes(t.type));
 
   if (ifConnectedToTrace || ifConnectedToLayout) {
-    return <Section {...props} />;
+    return <PlotlySection {...props} />;
   }
 
   return null;
